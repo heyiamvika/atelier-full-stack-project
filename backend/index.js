@@ -1,14 +1,14 @@
 const express = require('express');
-const uuid = require('uuid');
 const dotenv = require('dotenv');
 
 dotenv.config();
 const app = express();
 
-// require('./routes/models');
-// require('./routes/fabrics');
 const courses = require('./routes/employees');
-// require('./routes/orders');
+const accessories = require('./routes/accessories');
+const fabrics = require('./routes/fabrics');
+const models = require('./routes/models');
+const orders = require('./routes/orders');
 
 // Express Middlewares
 app.use(express.json());
@@ -22,6 +22,10 @@ app.use(function (req, res, next) {
 });
 
 app.use('/api/employees', courses);
+app.use('/api/accessories', accessories);
+app.use('/api/fabrics', fabrics);
+app.use('/api/models', models);
+app.use('/api/orders', orders);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

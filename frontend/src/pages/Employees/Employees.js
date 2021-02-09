@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 
 import { getAllEmployees } from '../../services/employees';
 
-import './Employees.css';
-
 function Employees() {
 	const [employees, setEmployees] = useState([]);
 
@@ -11,14 +9,12 @@ function Employees() {
 		getAllEmployees().then((res) => setEmployees(res));
 	}, []);
 
-	console.log('employees', employees);
-
 	return (
 		<div className='employees'>
 			<div className='page-heading'>
 				<h2>Співробітники</h2>
 			</div>
-			<div className='employees-table'>
+			<div className='data-table'>
 				<table className='table'>
 					<thead>
 						<tr>
@@ -29,7 +25,6 @@ function Employees() {
 					</thead>
 					<tbody>
 						{employees.map((employee) => {
-							console.log(employee);
 							const { employee_id, name, orders_count } = employee;
 
 							return (

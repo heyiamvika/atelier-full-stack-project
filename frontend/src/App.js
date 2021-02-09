@@ -34,10 +34,7 @@ function App() {
 							<div className='collapse navbar-collapse' id='navbarNav'>
 								<ul className='navbar-nav'>
 									<li className='nav-item'>
-										<NavLink
-											to='/catalogue'
-											className='nav-link'
-											aria-current='page'>
+										<NavLink to='/catalogue' className='nav-link'>
 											Каталог
 										</NavLink>
 									</li>

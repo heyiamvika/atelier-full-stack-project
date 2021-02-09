@@ -6,7 +6,7 @@ const pool = require('../dbConfig');
 router.get('/', (req, res) => {
 	const sqlQuery = `
 	SELECT * 
-    FROM fabrics;
+    FROM garment_accessories;
 	`;
 
 	pool.getConnection((err, connection) => {
