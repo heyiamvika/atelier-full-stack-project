@@ -3,23 +3,28 @@ const router = express.Router();
 
 const pool = require('../dbConfig');
 
+const { connect } = require('../helpers');
+
 router.get('/', (req, res) => {
 	const sqlQuery = `
 	SELECT * 
     FROM garment_accessories;
 	`;
 
-	pool.getConnection((err, connection) => {
-		if (err) {
-			return res.status(400).send(err);
-		}
-		connection.query(sqlQuery, (error, results) => {
-			if (error) res.status(404).send(error);
-			else res.send(results);
+	connect(sqlQuery, res);
+});
 
-			connection.release();
-		});
-	});
+router.post('/', (req, res) => {
+	const { title, pricePerItem, itemsLeft } = req.body;
+
+	console.log(title, pricePerItem, itemsLeft);
+
+	const sqlQuery = `
+	INSERT INTO garment_accessories (title, price_per_item, items_left)
+	VALUES ("${title}", ${pricePerItem}, ${itemsLeft});
+	`;
+
+	connect(sqlQuery, res);
 });
 
 module.exports = router;

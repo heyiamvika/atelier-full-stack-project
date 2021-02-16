@@ -7,9 +7,9 @@ import AddAccessoryModal from '../modals/AddAccessoryModal';
 function Acessories() {
 	const [accessories, setAccessories] = useState([]);
 
-	// useEffect(() => {
-	// 	getAccessories().then((res) => setAccessories(res));
-	// }, []);
+	useEffect(() => {
+		getAccessories().then((res) => setAccessories(res));
+	}, []);
 
 	return (
 		<div className='accessories main-container'>
