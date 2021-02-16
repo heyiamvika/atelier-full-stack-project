@@ -17,7 +17,7 @@ function Fabrics() {
 				{fabrics.length > 0 ? (
 					<div className='data-table'>
 						<div className='add-new-instance-btn'>
-							<AddNewButton modalId='#exampleModal' text='+' />
+							<AddNewButton modalId='#newFabricModal' text='+' />
 						</div>
 					</div>
 				) : (
