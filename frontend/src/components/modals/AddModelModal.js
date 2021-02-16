@@ -10,7 +10,7 @@ function AddModelForm() {
 	return (
 		<div
 			className='modal fade'
-			id='exampleModal'
+			id='newModelModal'
 			tabIndex='-1'
 			aria-labelledby='exampleModalLabel'
 			aria-hidden='true'>

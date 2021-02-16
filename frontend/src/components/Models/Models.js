@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getModels } from '../../services/catalogue';
 
-import AddModelForm from '../AddModelForm/AddModelForm';
+import AddModelForm from '../modals/AddModelModal';
 import AddNewButton from '../buttons/AddNewButton/AddNewButton';
 
 function Models() {
@@ -23,7 +23,7 @@ function Models() {
 				) : (
 					<div className='no-instances-wrapper'>
 						<span>В даній базі поки немає моделей</span>
-						<AddNewButton modalId='#exampleModal' text='Додати нову модель' />
+						<AddNewButton modalId='#newModelModal' text='Додати нову модель' />
 					</div>
 				)}
 			</div>

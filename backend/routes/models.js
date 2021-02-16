@@ -9,21 +9,33 @@ router.get('/', (req, res) => {
     FROM models;
 	`;
 
-	connect(sqlQuery);
+	connect(sqlQuery, res);
 });
 
 router.post('/', (req, res) => {
+	const {
+		title,
+		fabricId,
+		fabricConsumption,
+		garmentAccessoriesId,
+		garmentAccessoriesConsumption,
+		laborHours,
+		laborCostPerHour,
+	} = req.body;
+
+	res.status(200).send();
+
 	// const sqlQuery = `
 	// INSERT *
 	// FROM models;
 	// `;
 
-	connect(sqlQuery);
+	// connect(sqlQuery);
 });
 
 module.exports = router;
 
-function connect(sqlQuery) {
+function connect(sqlQuery, res) {
 	pool.getConnection((err, connection) => {
 		if (err) {
 			return res.status(400).send(err);
