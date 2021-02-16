@@ -17,7 +17,7 @@ function Acessories() {
 					<span>В даній базі поки немає фурнітур</span>
 				)}
 			</div>
-			<button type='button' class='btn btn-primary'>
+			<button type='button' className='btn btn-primary'>
 				Додати нову фурнітуру
 			</button>
 		</div>

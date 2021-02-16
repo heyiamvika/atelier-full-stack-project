@@ -17,7 +17,7 @@ function Fabrics() {
 					<span>В даній базі поки немає тканин</span>
 				)}
 			</div>
-			<button type='button' class='btn btn-primary'>
+			<button type='button' className='btn btn-primary'>
 				Додати нову тканину
 			</button>
 		</div>
