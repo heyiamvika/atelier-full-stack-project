@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-import { getAllEmployees } from '../../services/employees';
+import { getAllEmployees } from '../services/employees';
 
 function Employees() {
 	const [employees, setEmployees] = useState([]);

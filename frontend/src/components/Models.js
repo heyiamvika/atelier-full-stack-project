@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { getModels } from '../../services/catalogue';
+import { getModels } from '../services/catalogue';
 
-import AddModelForm from '../modals/AddModelModal';
-import AddNewButton from '../buttons/AddNewButton/AddNewButton';
+import AddModelForm from './modals/AddModelModal';
+import AddNewButton from './buttons/AddNewButton';
 
 function Models() {
 	const [models, setModels] = useState([]);

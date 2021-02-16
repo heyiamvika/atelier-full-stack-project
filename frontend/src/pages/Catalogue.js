@@ -6,9 +6,9 @@ import {
 	useRouteMatch,
 } from 'react-router-dom';
 
-import Models from '../../components/Models/Models';
-import Fabrics from '../../components/Fabrics/Fabrics';
-import Accessories from '../../components/Accessories/Accessories';
+import Models from '../components/Models';
+import Fabrics from '../components/Fabrics';
+import Accessories from '../components/Accessories';
 
 function Catalogue() {
 	let { path, url } = useRouteMatch();

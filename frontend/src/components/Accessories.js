@@ -1,24 +1,27 @@
 import React, { useEffect, useState } from 'react';
-import { getAccessories } from '../../services/catalogue';
+import { getAccessories } from '../services/catalogue';
 
-import AddNewButton from '../buttons/AddNewButton/AddNewButton';
-import AddAccessoryModal from '../modals/AddAccessoryModal';
+import AddNewButton from './buttons/AddNewButton';
+import AddAccessoryModal from './modals/AddAccessoryModal';
 
 function Acessories() {
 	const [accessories, setAccessories] = useState([]);
+	const [isLoading, setIsLoading] = useState(false);
 
 	useEffect(() => refreshAccessoriesList(), []);
 
 	const refreshAccessoriesList = () => {
+		setIsLoading(true);
 		getAccessories()
 			.then((res) => setAccessories(res))
-			.then(() => console.log('accessories', accessories));
+			.then(() => console.log('accessories', accessories))
+			.then(() => setIsLoading(false));
 	};
 
 	return (
 		<div className='accessories main-container'>
 			<div className='table-container'>
-				{accessories.length > 0 ? (
+				{accessories.length > 0 || isLoading ? (
 					<div className='data-table'>
 						<table className='table'>
 							<thead>
