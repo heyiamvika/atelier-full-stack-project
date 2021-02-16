@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function AddFabricModal() {
+function AddFabricModal(props) {
 	return (
 		<div
 			className='modal fade'

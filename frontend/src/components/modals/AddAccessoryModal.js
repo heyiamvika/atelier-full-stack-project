@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { createNewAccessory } from '../../services/catalogue';
 
-function AddAccessoryModal() {
+function AddAccessoryModal(props) {
 	const [accessoriesDetails, setAccessoriesDetails] = useState({
 		title: '',
 		pricePerItem: 0,
@@ -20,7 +20,12 @@ function AddAccessoryModal() {
 			itemsLeft: newItemsLeftCount,
 		});
 
-	const submitNewAccessory = () => createNewAccessory(accessoriesDetails);
+	const submitNewAccessory = () => {
+		createNewAccessory(accessoriesDetails).then((res) => {
+			console.log('accessory created with res', res);
+			props.onAccessoryAdded();
+		});
+	};
 
 	return (
 		<div className='modal fade' id='newAccessoryModal' tabIndex='-1'>
@@ -55,6 +60,7 @@ function AddAccessoryModal() {
 								</label>
 								<input
 									type='number'
+									step='0.01'
 									className='form-control'
 									id='price-per-item'
 									onChange={(e) => changePrice(Math.round(e.target.value), 2)}
