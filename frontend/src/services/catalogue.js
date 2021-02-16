@@ -1,12 +1,10 @@
+import { createGET, createPOST } from './requests';
+
 export const getModels = () => createGET('http://localhost:3000/api/models');
 export const getFabrics = () => createGET('http://localhost:3000/api/fabrics');
-export const getAccessories = () =>
-	createGET('http://localhost:3000/api/accessories');
 
-function createGET(url) {
-	return fetch(url)
-		.then((res) => res.json())
-		.catch((err) => {
-			console.error(err);
-		});
-}
+const ACCESSORIES_URL = 'http://localhost:3000/api/accessories';
+export const getAccessories = () => createGET(ACCESSORIES_URL);
+export const createNewAccessory = (accessoryDetails) => {
+	createPOST(ACCESSORIES_URL, accessoryDetails);
+};

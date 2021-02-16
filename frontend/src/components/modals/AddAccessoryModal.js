@@ -1,6 +1,27 @@
 import React, { useState } from 'react';
+import { createNewAccessory } from '../../services/catalogue';
 
 function AddAccessoryModal() {
+	const [accessoriesDetails, setAccessoriesDetails] = useState({
+		title: '',
+		pricePerItem: 0,
+		itemsLeft: 0,
+	});
+
+	const changeTitle = (newTitle) =>
+		setAccessoriesDetails({ ...accessoriesDetails, title: newTitle });
+
+	const changePrice = (newPrice) =>
+		setAccessoriesDetails({ ...accessoriesDetails, pricePerItem: newPrice });
+
+	const changeItemsLeft = (newItemsLeftCount) =>
+		setAccessoriesDetails({
+			...accessoriesDetails,
+			itemsLeft: newItemsLeftCount,
+		});
+
+	const submitNewAccessory = () => createNewAccessory(accessoriesDetails);
+
 	return (
 		<div className='modal fade' id='newAccessoryModal' tabIndex='-1'>
 			<div className='modal-dialog'>
@@ -20,7 +41,12 @@ function AddAccessoryModal() {
 							<label htmlFor='title' className='form-label'>
 								Назва фурнітури
 							</label>
-							<input type='text' className='form-control' id='title' />
+							<input
+								type='text'
+								className='form-control'
+								id='title'
+								onChange={(e) => changeTitle(e.target.value)}
+							/>
 						</div>
 						<div className='row mb-3'>
 							<div className='col-6'>
@@ -28,9 +54,10 @@ function AddAccessoryModal() {
 									Ціна за шт.
 								</label>
 								<input
-									type='text'
+									type='number'
 									className='form-control'
 									id='price-per-item'
+									onChange={(e) => changePrice(Math.round(e.target.value), 2)}
 								/>
 							</div>
 							<div className='col-6'>
@@ -40,9 +67,10 @@ function AddAccessoryModal() {
 									Шт. в наявності
 								</label>
 								<input
-									type='text'
+									type='number'
 									className='form-control'
 									id='accessories-count-at-warehouse'
+									onChange={(e) => changeItemsLeft(Math.floor(e.target.value))}
 								/>
 							</div>
 						</div>
@@ -57,7 +85,7 @@ function AddAccessoryModal() {
 						<button
 							type='button'
 							className='btn btn-primary'
-							onClick={() => console.log('Save changes')}
+							onClick={submitNewAccessory}
 							data-bs-dismiss='modal'>
 							Зберігти зміни
 						</button>

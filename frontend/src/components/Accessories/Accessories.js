@@ -9,6 +9,7 @@ function Acessories() {
 
 	useEffect(() => {
 		getAccessories().then((res) => setAccessories(res));
+		console.log(accessories);
 	}, []);
 
 	return (
