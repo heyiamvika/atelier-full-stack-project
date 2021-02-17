@@ -44,10 +44,12 @@ function Orders() {
 									const {
 										client_name,
 										employee_id,
+										employee_name,
 										fitting_date,
 										fulfillment_date,
 										is_paid,
 										model_id,
+										model_title,
 										order_date,
 										order_id,
 										order_note,
@@ -65,8 +67,8 @@ function Orders() {
 										<tr key={order_id}>
 											<th scope='row'>{order_id}</th>
 											<td>{client_name}</td>
-											<td>{model_id}</td>
-											<td>{employee_id}</td>
+											<td>{model_title}</td>
+											<td>{employee_name}</td>
 											<td>{orderDate}</td>
 											<td>{fittingDate}</td>
 											<td>{fulfillmentDate}</td>

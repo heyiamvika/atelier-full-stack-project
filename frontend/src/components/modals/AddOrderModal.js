@@ -28,8 +28,7 @@ function AddOrderModal(props) {
 		setOrderDetails({ ...orderDetails, [key]: value });
 
 	const submitNewOrder = () => {
-		console.log(orderDetails);
-
+		console.log('new order', orderDetails);
 		createNewOrder(orderDetails).then((res) => {
 			console.log('order created with res', res);
 
@@ -147,10 +146,7 @@ function AddOrderModal(props) {
 										type='checkbox'
 										id='is-paid-checkbox'
 										onChange={(e) =>
-											changeOrderDetail(
-												'isPaid',
-												e.target.value === 'on' ? true : false,
-											)
+											changeOrderDetail('isPaid', e.target.checked)
 										}
 									/>
 									<label

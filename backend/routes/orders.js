@@ -7,8 +7,21 @@ let intId = 1;
 
 router.get('/', (req, res) => {
 	const sqlQuery = `
-	SELECT * 
-    FROM orders;
+	SELECT 
+		o.order_id,
+		o.client_name, 
+		m.title AS model_title,
+		e.name AS employee_name,
+		o.order_date,
+		o.fitting_date,
+		o.fulfillment_date,
+		o.is_paid,
+		o.order_note
+	FROM orders o
+	JOIN models m
+		USING (model_id)
+	JOIN employees e
+		USING(employee_id);
 	`;
 
 	connect(sqlQuery, res);
