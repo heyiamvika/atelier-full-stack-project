@@ -5,14 +5,14 @@ const pool = require('../dbConfig');
 
 router.get('/', (req, res) => {
 	const sqlQuery = `
-	SELECT 
-		employee_id, 
-		name,
-		COUNT(order_id) AS orders_count
-	FROM employees e
-	LEFT JOIN orders o
-		USING (employee_id)
-	GROUP BY employee_id;
+		SELECT 
+			employee_id, 
+			name,
+			COUNT(order_id) AS orders_count
+		FROM employees e
+		LEFT JOIN orders o
+			USING (employee_id)
+		GROUP BY employee_id;
 	`;
 
 	pool.getConnection((err, connection) => {

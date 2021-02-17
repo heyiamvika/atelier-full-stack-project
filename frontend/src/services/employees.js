@@ -1,7 +1,4 @@
-export function getAllEmployees() {
-	return fetch('http://localhost:5000/api/employees')
-		.then((res) => res.json())
-		.catch((err) => {
-			console.error(err);
-		});
-}
+import { createGET, createPOST } from './requests';
+
+const EMPLOYEES_URL = 'http://localhost:3000/api/employees';
+export const getAllEmployees = () => createGET(EMPLOYEES_URL);
