@@ -7,8 +7,6 @@ export function createGET(url) {
 }
 
 export function createPOST(url, body) {
-	console.log('body', JSON.stringify(body));
-
 	return fetch(url, {
 		method: 'POST',
 		headers: {

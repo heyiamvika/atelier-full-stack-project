@@ -1,8 +1,6 @@
 const pool = require('./dbConfig');
 
 function connect(sqlQuery, res) {
-	console.log(sqlQuery, res);
-
 	pool.getConnection((err, connection) => {
 		if (err) {
 			return res.status(400).send(err);
